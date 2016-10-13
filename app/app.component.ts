@@ -1,23 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }    from '@angular/core';
+
+import { Core, Translator }     from "./shared/inheritable-core.component";
 
 @Component({
     selector: 'pulsar-app',
     templateUrl: 'ng-pulsar/app/app.component.html'
 })
 
-export class AppComponent implements OnInit {
+// por que funciona? el mixin no estaría solo permitido en tiempo de declaración???
 
-    lang: {};
+export class AppComponent extends Core implements Translator, OnInit
+{
     title: string = 'NG PULSAR';
-    //lang    =  require('./lab-lang/' + document['locale']);
-    //lang    =  import {object} from ('./lab-lang/es');
 
     ngOnInit()
     {
-        //this.lang = require('./lab-lang/' + document['locale']);
-    }
-
-    getValue(){
-        return 'hola mundo';
+        this.applyMixins(AppComponent, [Translator]);
     }
 }

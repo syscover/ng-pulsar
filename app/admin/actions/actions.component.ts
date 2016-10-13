@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
     moduleId: module.id,
     templateUrl: 'name.component.html'
 })
+
 export class ActionsComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }
-    
 }
