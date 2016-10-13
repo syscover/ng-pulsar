@@ -1,0 +1,1 @@
+{"version":3,"file":"article-list.compoment.js","sourceRoot":"","sources":["article-list.compoment.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAkC,eAAe,CAAC,CAAA;AAOlD;IACI;IAAgB,CAAC;IAEjB,uCAAQ,GAAR,cAAa,CAAC;IARlB;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,kCAAkC;YAClC,WAAW,EAAE,6BAA6B;SAC7C,CAAC;;4BAAA;IAMF,2BAAC;AAAD,CAAC,AALD,IAKC;AALY,4BAAoB,uBAKhC,CAAA"}

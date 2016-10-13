@@ -1,0 +1,15 @@
+<h1>{{ title }}</h1>
+<h2>Hola</h2>
+<nav>
+    <ul>
+        <li><a routerLink="/pulsar/cms" routerLinkActive="active">CMS</a></li>
+        <li>
+            <a routerLink="/pulsar/admin" routerLinkActive="active">Administration</a>
+            <ul>
+                <li><a routerLink="/pulsar/admin/actions" routerLinkActive="active">Actions</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>
