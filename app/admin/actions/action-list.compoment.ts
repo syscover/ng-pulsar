@@ -3,9 +3,10 @@ import { Component, OnInit }    from '@angular/core';
 import { ActionService }        from './action.service';
 import { Action }               from './action.model';
 
+import { TranslatorService }    from '../../shared/translator.service';
+
 @Component({
     moduleId: module.id,
-    //selector: 'pulsar-actions-list',
     templateUrl: 'action-list.component.html'
 })
 
@@ -15,8 +16,8 @@ export class ActionListComponent implements OnInit
     actions: Action[];
 
     constructor(
-        private actionService: ActionService
-    ) { }
+        private trans: TranslatorService, private actionService: ActionService
+    ) {}
 
     ngOnInit()
     {
@@ -25,7 +26,7 @@ export class ActionListComponent implements OnInit
 
     getRecords(): void
     {
-        console.log('with observables');
+        //console.log('with observables');
 
         this.actionService.getRecords()
             .subscribe(
@@ -36,7 +37,7 @@ export class ActionListComponent implements OnInit
 
     getRecords2(): void
     {
-        console.log('with promise');
+        //console.log('with promise');
 
         this.actionService.getRecords2()
             .then(

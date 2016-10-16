@@ -14,6 +14,7 @@ var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var core_module_1 = require('./core/core.module');
 var app_routing_module_1 = require('./app-routing.module');
+var translator_service_1 = require('./shared/translator.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,6 +29,9 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent
+            ],
+            providers: [
+                translator_service_1.TranslatorService
             ],
             bootstrap: [
                 app_component_1.AppComponent

@@ -26,6 +26,7 @@ var CoreModule = (function () {
                 common_1.CommonModule
             ],
             declarations: [],
+            providers: [],
             bootstrap: []
         }),
         __param(0, core_1.Optional()),

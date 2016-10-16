@@ -6,6 +6,8 @@ import { AppComponent }             from './app.component';
 import { CoreModule }               from './core/core.module';
 import { AppRoutingModule }         from './app-routing.module';
 
+import { TranslatorService }        from './shared/translator.service';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -17,6 +19,9 @@ import { AppRoutingModule }         from './app-routing.module';
     ],
     declarations: [
         AppComponent
+    ],
+    providers: [
+        TranslatorService
     ],
     bootstrap: [
         AppComponent

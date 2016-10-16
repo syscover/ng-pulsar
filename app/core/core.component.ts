@@ -1,4 +1,4 @@
-export abstract class Core
+export class CoreComponent
 {
     applyMixins(derivedCtor: any, baseCtors: any[])
     {
@@ -7,13 +7,5 @@ export abstract class Core
                 derivedCtor.prototype[name] = baseCtor.prototype[name];
             });
         });
-    }
-}
-
-export abstract class Translator
-{
-    trans(): string
-    {
-        return 'lanza el mensaje from abstract class 3';
     }
 }

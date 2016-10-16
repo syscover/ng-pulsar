@@ -1,7 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { CommonModule }                 from '@angular/common';
-
 import './rxjs-extensions';
 
 @NgModule({
@@ -9,6 +8,7 @@ import './rxjs-extensions';
         CommonModule
     ],
     declarations: [],
+    providers: [],
     bootstrap: []
 })
 
