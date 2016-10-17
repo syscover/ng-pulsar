@@ -1,5 +1,5 @@
 "use strict";
-exports.collection = {
-    actions: 'Actions'
-};
+exports.translations = [
+    { key: 'actions', value: 'Actions' }
+];
 //# sourceMappingURL=en.js.map

@@ -1,3 +1,5 @@
-export const collection: Object = {
-    actions:    'Actions'
-};
+import { Translation } from '../../shared/translator/translation.model';
+
+export const translations: Translation[] = [
+    {key: 'actions',        value: 'Actions'}
+];

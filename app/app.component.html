@@ -3,6 +3,12 @@
 <h2 (click)="test()">Trans: {{ trans.get('hello_world') }}</h2>
 <nav>
     <ul>
+        <li><a (click)="trans.change('es')">ES</a></li>
+        <li><a (click)="trans.change('en')">EN</a></li>
+    </ul>
+</nav>
+<nav>
+    <ul>
         <li><a routerLink="/pulsar" routerLinkActive="active">Dashboard</a></li>
         <li><a routerLink="/pulsar/cms" routerLinkActive="active">CMS</a></li>
         <li>

@@ -9,27 +9,55 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+/**
+ *  Services to get translator
+ */
 var TranslatorService = (function () {
     function TranslatorService() {
         this.locale = document['locale'];
         this.collections = [];
         this.isLoading = false;
     }
-    TranslatorService.prototype.load = function (moduleName) {
+    /**
+     * Load translations files
+     *
+     * @param       moduleName        Module name to load translations, if module if empty, record TranslationCollection with root index
+     * @param       checkOverload     Flag to manage overload, and first angular 2 load, are many request to render views, this request cause overload, if we don't control
+     * @returns     {null}
+     */
+    TranslatorService.prototype.load = function (moduleName, checkOverload) {
         var _this = this;
-        if (this.isLoading)
+        if (this.isLoading && checkOverload)
             return null;
         var routeModule = '';
         if (moduleName !== 'root')
             routeModule = moduleName + '/';
-        this.isLoading = true;
+        if (checkOverload)
+            this.isLoading = true;
         System.import(System.baseURL + 'app/' + routeModule + 'translations/' + this.locale).then(function (response) {
-            //this.collections[moduleName] = response.collection;
-            _this.collections.push({ module: moduleName, translations: response.translations });
-            _this.isLoading = false;
+            // Search translationCollection in collections array
+            var isFound = false;
+            _this.collections.find(function (translationCollection, index) {
+                if (translationCollection.module === moduleName) {
+                    _this.collections[index] = { module: moduleName, translations: response.translations };
+                    return isFound = true;
+                }
+            });
+            // Add new translationCollection
+            if (!isFound)
+                _this.collections.push({ module: moduleName, translations: response.translations });
+            if (checkOverload)
+                _this.isLoading = false;
         });
     };
+    /**
+     * Function to get translation from a kay
+     *
+     * @param       key
+     * @returns     {string}
+     */
     TranslatorService.prototype.get = function (key) {
+        // console.log('do request');
         var index = null;
         var moduleName = null;
         if (key.indexOf('::') !== -1) {
@@ -40,26 +68,26 @@ var TranslatorService = (function () {
             index = key;
             moduleName = 'root';
         }
-        this.collections.find();
-        if (moduleName in this.collections) {
-            this.collections.find(function (object) { return object.module == moduleName; });
-            var translation = .find(function (translation) { return translation.key === index; });
+        var translationCollection = this.collections.find(function (translationCollection) { return translationCollection.module == moduleName; });
+        if (translationCollection) {
+            var translation = translationCollection.translations.find(function (translation) { return translation.key === index; });
             return translation.value;
         }
         else {
-            this.load(moduleName);
+            this.load(moduleName, true);
         }
     };
+    /**
+     * Function to change lang
+     *
+     * @param lang
+     */
     TranslatorService.prototype.change = function (lang) {
         this.locale = lang;
-        console.log(this.collections);
-        var promises = this.collections.map(function (collections) { return console.log(collections); });
-        //console.log(promises);
-        // Promise.all(promises).then((values)=>{})
-        for (var key in this.collections) {
-            this.load(key);
+        for (var _i = 0, _a = this.collections; _i < _a.length; _i++) {
+            var translationCollection = _a[_i];
+            this.load(translationCollection.module, false);
         }
-        // console.log(this.collections);
     };
     TranslatorService = __decorate([
         core_1.Injectable(), 

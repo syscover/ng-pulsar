@@ -1,6 +1,6 @@
 "use strict";
-exports.collection = {
-    hello_world: 'Hola mundo',
-    name: 'Nombre|Nombres'
-};
+exports.translations = [
+    { key: 'hello_world', value: 'Hola Mundo' },
+    { key: 'name', value: 'Nombre|Nombres' },
+];
 //# sourceMappingURL=es.js.map

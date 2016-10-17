@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var action_service_1 = require('./action.service');
-var translator_service_1 = require('../../shared/translator.service');
+var translator_service_1 = require('../../shared/translator/translator.service');
 var ActionListComponent = (function () {
     function ActionListComponent(trans, actionService) {
         this.trans = trans;

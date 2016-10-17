@@ -3,7 +3,7 @@ import { Component, OnInit }    from '@angular/core';
 import { ActionService }        from './action.service';
 import { Action }               from './action.model';
 
-import { TranslatorService }    from '../../shared/translator.service';
+import { TranslatorService }    from '../../shared/translator/translator.service';
 
 @Component({
     moduleId: module.id,

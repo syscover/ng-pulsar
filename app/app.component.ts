@@ -1,6 +1,6 @@
-import { Component }        from '@angular/core';
+import { Component }            from '@angular/core';
 
-import { TranslatorService }    from './shared/translator.service';
+import { TranslatorService }    from './shared/translator/translator.service';
 
 @Component({
     selector: 'pulsar-app',
