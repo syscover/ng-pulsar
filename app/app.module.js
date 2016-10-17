@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
+var material_1 = require('@angular/material');
 var app_component_1 = require('./app.component');
 var core_module_1 = require('./core/core.module');
 var app_routing_module_1 = require('./app-routing.module');
@@ -21,6 +22,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [
+                material_1.MaterialModule.forRoot(),
                 platform_browser_1.BrowserModule,
                 core_module_1.CoreModule,
                 app_routing_module_1.AppRoutingModule,

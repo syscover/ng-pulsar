@@ -1,6 +1,14 @@
 <h1>{{ title }}</h1>
 <h2>Hola 2</h2>
 <h2 (click)="test()">Trans: {{ trans.get('hello_world') }}</h2>
+
+<h1>Material</h1>
+<button md-raised-button color="primary">PRIMARY</button>
+<button md-raised-button color="accent">ACCENT</button>
+<button md-raised-button color="warn">WARN</button>
+<button md-button>FLAT</button>
+
+
 <nav>
     <ul>
         <li><a (click)="trans.change('es')">ES</a></li>
