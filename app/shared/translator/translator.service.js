@@ -22,7 +22,7 @@ var TranslatorService = (function () {
      * Load translations files
      *
      * @param       moduleName        Module name to load translations, if module if empty, record TranslationCollection with root index
-     * @param       checkOverload     Flag to manage overload, and first angular 2 load, are many request to render views, this request cause overload, if we don't control
+     * @param       checkOverload     Flag to manage overload, and first angular 2 load, are many request, by hooks lifecycle, to render views, this request cause overload, if we don't control
      * @returns     {null}
      */
     TranslatorService.prototype.load = function (moduleName, checkOverload) {

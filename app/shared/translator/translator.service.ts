@@ -2,14 +2,15 @@ import { Injectable }               from '@angular/core';
 import { Translation }              from './translation.model';
 import { TranslationCollection }    from './translation-collection.model';
 
+
 declare var System: any;
 
 /**
  *  Services to get translator
  */
 @Injectable()
-export class TranslatorService {
-
+export class TranslatorService
+{
     private locale: string = document['locale'] as string;
     private collections: TranslationCollection[] = [];
     private isLoading: boolean = false;
@@ -18,7 +19,7 @@ export class TranslatorService {
      * Load translations files
      *
      * @param       moduleName        Module name to load translations, if module if empty, record TranslationCollection with root index
-     * @param       checkOverload     Flag to manage overload, and first angular 2 load, are many request to render views, this request cause overload, if we don't control
+     * @param       checkOverload     Flag to manage overload, and first angular 2 load, are many request, by hooks lifecycle, to render views, this request cause overload, if we don't control
      * @returns     {null}
      */
     private load(
