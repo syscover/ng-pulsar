@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var main_layout_component_1 = require('../shared/layouts/main-layout.component');
 var login_component_1 = require("./login/login.component");
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var lang_list_compoment_1 = require('./langs/lang-list.compoment');
@@ -17,17 +18,25 @@ var lang_detail_component_1 = require('./langs/lang-detail.component');
 var action_list_compoment_1 = require('./actions/action-list.compoment');
 var action_detail_component_1 = require('./actions/action-detail.component');
 var routes = [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     // Login
-    { path: 'login', component: login_component_1.LoginComponent },
-    // Dashboard
-    { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
-    // Langs
-    { path: 'langs', component: lang_list_compoment_1.LangListComponent },
-    { path: 'langs/:id', component: lang_detail_component_1.LangDetailComponent },
-    // Actions
-    { path: 'actions', component: action_list_compoment_1.ActionListComponent },
-    { path: 'actions/:id', component: action_detail_component_1.ActionDetailComponent }
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    {
+        path: 'login', component: login_component_1.LoginComponent
+    },
+    {
+        path: '', component: main_layout_component_1.MainLayoutComponent,
+        children: [
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+            // Dashboard
+            { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
+            // Langs
+            { path: 'langs', component: lang_list_compoment_1.LangListComponent },
+            { path: 'langs/:id', component: lang_detail_component_1.LangDetailComponent },
+            // Actions
+            { path: 'actions', component: action_list_compoment_1.ActionListComponent },
+            { path: 'actions/:id', component: action_detail_component_1.ActionDetailComponent }
+        ]
+    }
 ];
 var AdminRoutingModule = (function () {
     function AdminRoutingModule() {

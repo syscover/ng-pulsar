@@ -10,11 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var main_layout_component_1 = require('../shared/layouts/main-layout.component');
 var article_list_compoment_1 = require('./articles/article-list.compoment');
 var routes = [
-    { path: '', redirectTo: 'articles', pathMatch: 'full' },
-    // Article
-    { path: 'articles', component: article_list_compoment_1.ArticleListComponent }
+    {
+        path: '', component: main_layout_component_1.MainLayoutComponent,
+        children: [
+            { path: '', redirectTo: 'articles', pathMatch: 'full' },
+            // Article
+            { path: 'articles', component: article_list_compoment_1.ArticleListComponent }
+        ]
+    }
 ];
 var CmsRoutingModule = (function () {
     function CmsRoutingModule() {

@@ -17,30 +17,36 @@ var ActionService = (function () {
         this.http = http;
         this.apiRestUrl = config.apiUrlPrefix + '/admin/actions';
     }
-    // function with Observable
     ActionService.prototype.getRecords = function () {
-        return this.http
-            .get(this.apiRestUrl)
-            .map(function (response) { return response.json().data; })
-            .catch(this.handleError);
-    };
-    // function with Promise
-    ActionService.prototype.getRecords2 = function () {
         return this.http
             .get(this.apiRestUrl)
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);
     };
-    ActionService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body.data || {};
+    ActionService.prototype.getRecord = function (id) {
+        return this.getRecords()
+            .then(function (actions) { return actions.find(function (action) { return action.id_008 === id; }); });
     };
     ActionService.prototype.handleError = function (error) {
         var errorMsg = (error.message) ?
             error.message : error.status ? error.status + " - " + error.statusText : 'Server error';
         console.error(errorMsg);
         return Observable_1.Observable.throw(errorMsg);
+    };
+    //****************************************
+    //* Operations examples with observables
+    //****************************************
+    ActionService.prototype.getRecords_ob = function () {
+        return this.http
+            .get(this.apiRestUrl)
+            .map(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    // get data from elements without model
+    ActionService.prototype.extractData = function (res) {
+        var body = res.json();
+        return body.data || {};
     };
     ActionService = __decorate([
         core_1.Injectable(), 

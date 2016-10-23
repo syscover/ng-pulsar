@@ -1,7 +1,7 @@
 TRANS: {{ trans.get('admin::actions') }}
 
 <ul>
-    <li *ngFor="let action of actions">
-        {{ action.id_008 }} {{ action.name_008 }}
+    <li *ngFor="let action of actions" (click)="onSelect(action)">
+        <a [routerLink]="[action.id_008]">{{ action.id_008 }} {{ action.name_008 }}</a>
     </li>
 </ul>

@@ -1,0 +1,20 @@
+<nav>
+    <ul>
+        <li><a [routerLink]="['/pulsar/admin/login']" routerLinkActive="active">Login</a></li>
+        <li>
+            <a routerLink="/pulsar/admin" routerLinkActive="active">Administration</a>
+            <ul>
+                <li><a routerLink="/pulsar/admin/dashboard" routerLinkActive="active">Dashboard</a></li>
+                <li><a routerLink="/pulsar/admin/actions" routerLinkActive="active">Actions</a></li>
+            </ul>
+        </li>
+        <li><a [routerLink]="['/pulsar/cms']" routerLinkActive="active">CMS</a></li>
+        <li><a routerLink="/pulsar/material" routerLinkActive="active">Material</a></li>
+        <li>
+            <a routerLink="/pulsar/vaadin" routerLinkActive="active">Vaadin</a>
+            <ul>
+                <li><a routerLink="/pulsar/vaadin/date-picker" routerLinkActive="active">Date picker</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

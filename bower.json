@@ -1,0 +1,20 @@
+{
+  "name": "angular2-quickstart",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Jose Carlos R. Palacín (Syscover) <cpalacin@syscover.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/syscover/ng-pulsar",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vaadin-date-picker": "^1.1.4"
+  }
+}

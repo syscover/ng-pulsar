@@ -13,9 +13,11 @@ var router_1 = require('@angular/router');
 var config = require('./shared/app-globals');
 exports.routes = [
     // bootstrap route
-    { path: config.appUrlPrefix, redirectTo: 'pulsar/admin', pathMatch: 'full' },
+    { path: config.appUrlPrefix, redirectTo: config.appUrlPrefix + '/admin', pathMatch: 'full' },
     { path: config.appUrlPrefix + '/admin', loadChildren: 'app/admin/admin.module#AdminModule' },
-    { path: config.appUrlPrefix + '/cms', loadChildren: 'app/cms/cms.module#CmsModule' }
+    { path: config.appUrlPrefix + '/cms', loadChildren: 'app/cms/cms.module#CmsModule' },
+    { path: config.appUrlPrefix + '/material', loadChildren: 'app/dev-material/dev-material.module#DevMaterialModule' },
+    { path: config.appUrlPrefix + '/vaadin', loadChildren: 'app/dev-vaadin/dev-vaadin.module#DevVaadinModule' },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

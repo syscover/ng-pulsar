@@ -10,15 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
+var main_layout_component_1 = require('./layouts/main-layout.component');
+var pulsar_side_bar_component_1 = require("./nav/pulsar-side-bar.component");
 var SharedModule = (function () {
     function SharedModule() {
     }
     SharedModule = __decorate([
         core_1.NgModule({
             imports: [
+                router_1.RouterModule,
                 common_1.CommonModule
             ],
-            declarations: [],
+            declarations: [
+                main_layout_component_1.MainLayoutComponent,
+                pulsar_side_bar_component_1.PulsarSideBarComponent
+            ],
             exports: [
                 common_1.CommonModule
             ]

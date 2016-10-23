@@ -16,17 +16,7 @@ export class ActionService {
         private http: Http
     ) { }
 
-    // function with Observable
-    getRecords(): Observable<Action[]>
-    {
-        return this.http
-            .get(this.apiRestUrl)
-            .map((response: Response) => response.json().data as Action[])
-            .catch(this.handleError);
-    }
-
-    // function with Promise
-    getRecords2 (): Promise<Action[]>
+    getRecords(): Promise<Action[]>
     {
         return this.http
             .get(this.apiRestUrl)
@@ -35,10 +25,10 @@ export class ActionService {
             .catch(this.handleError);
     }
 
-    private extractData(res: Response)
+    getRecord(id: string): Promise<Action>
     {
-        let body = res.json();
-        return body.data || { };
+        return this.getRecords()
+            .then(actions => actions.find(action => action.id_008 === id));
     }
 
     private handleError (error: any)
@@ -49,5 +39,23 @@ export class ActionService {
         console.error(errorMsg);
 
         return Observable.throw(errorMsg);
+    }
+
+    //****************************************
+    //* Operations examples with observables
+    //****************************************
+    getRecords_ob(): Observable<Action[]>
+    {
+        return this.http
+            .get(this.apiRestUrl)
+            .map((response: Response) => response.json().data as Action[])
+            .catch(this.handleError);
+    }
+
+    // get data from elements without model
+    private extractData(res: Response)
+    {
+        let body = res.json();
+        return body.data || { };
     }
 }

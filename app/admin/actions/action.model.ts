@@ -1,5 +1,5 @@
 export class Action
 {
-    id_088: string;
-    name_088: string;
+    id_008: string;
+    name_008: string;
 }

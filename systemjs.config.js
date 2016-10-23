@@ -27,6 +27,8 @@
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
             '@angular/material': 'npm:@angular/material/material.umd.js',
 
+            '@vaadin/angular2-polymer': 'npm:@vaadin/angular2-polymer',
+
             // other libraries
             'rxjs':                       'npm:rxjs'
         },
@@ -40,6 +42,10 @@
                 defaultExtension: 'js'
             },
             'angular2-in-memory-web-api': {
+                main: './index.js',
+                defaultExtension: 'js'
+            },
+            '@vaadin/angular2-polymer': {
                 main: './index.js',
                 defaultExtension: 'js'
             }

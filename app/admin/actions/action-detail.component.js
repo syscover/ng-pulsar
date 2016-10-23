@@ -9,17 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var action_service_1 = require('./action.service');
+var translator_service_1 = require('../../shared/translator/translator.service');
 var ActionDetailComponent = (function () {
-    function ActionDetailComponent() {
+    function ActionDetailComponent(route, actionService, trans) {
+        this.route = route;
+        this.actionService = actionService;
+        this.trans = trans;
     }
-    ActionDetailComponent.prototype.ngOnInit = function () { };
+    ActionDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            _this.actionService.getRecord(params['id'])
+                .then(function (action) { return _this.action = action; });
+        });
+    };
     ActionDetailComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            //selector: 'pulsar-action-detail',
             templateUrl: 'action-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, action_service_1.ActionService, translator_service_1.TranslatorService])
     ], ActionDetailComponent);
     return ActionDetailComponent;
 }());

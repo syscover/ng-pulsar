@@ -1,1 +1,9 @@
-action-detail.component loaded
+<h1>{{ trans.get('admin::action_detail') }}</h1>
+
+<div *ngIf="action">
+    <div><label>id:</label> {{ action.id_008 }}</div>
+    <div><label>{{ trans.getChoice('name') }}:</label> {{ action.name_008 }}</div>
+</div>
+<div *ngIf="! action">
+    {{ trans.get('admin::action_not_found') }}
+</div>

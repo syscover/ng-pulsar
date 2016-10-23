@@ -1,52 +1,10 @@
+    <h1>{{ title }}</h1>
+    <nav>
+        <ul>
+            <li><a (click)="trans.change('es')">ES</a></li>
+            <li><a (click)="trans.change('en')">EN</a></li>
+        </ul>
+    </nav>
 
-    <md-sidenav-layout>
-        <md-sidenav #start (open)="mybutton.focus()">
-            Start Sidenav.
-            <br>
-            <button md-button #mybutton (click)="start.close()">Close</button>
-        </md-sidenav>
-        <md-sidenav #end align="end">
-            End Sidenav.
-            <button md-button (click)="end.close()">Close</button>
-        </md-sidenav>
-
-        <h1>{{ title }}</h1>
-        <h2>Hola 3</h2>
-        <h2 (click)="test()">Trans: {{ trans.get('hello_world') }}</h2>
-
-        <h1>Material</h1>
-        <button md-raised-button color="primary">PRIMARY</button>
-        <button md-raised-button color="accent">ACCENT</button>
-        <button md-raised-button color="warn">WARN</button>
-        <button md-button>FLAT</button>
-
-
-        <nav>
-            <ul>
-                <li><a (click)="trans.change('es')">ES</a></li>
-                <li><a (click)="trans.change('en')">EN</a></li>
-            </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li><a routerLink="/pulsar" routerLinkActive="active">Dashboard</a></li>
-                <li><a routerLink="/pulsar/cms" routerLinkActive="active">CMS</a></li>
-                <li>
-                    <a routerLink="/pulsar/admin" routerLinkActive="active">Administration</a>
-                    <ul>
-                        <li><a routerLink="/pulsar/admin/actions" routerLinkActive="active">Actions</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <md-card>
-            <md-card-title-group>
-                <img md-card-sm-image src="path/to/img.png">
-                <md-card-title>Card with title</md-card-title>
-                <md-card-subtitle>Subtitle</md-card-subtitle>
-            </md-card-title-group>
-        </md-card>
-
-        <router-outlet></router-outlet>
-    </md-sidenav-layout>
+    <!-- main routes outlet -->
+    <router-outlet></router-outlet>

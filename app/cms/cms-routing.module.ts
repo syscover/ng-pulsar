@@ -1,13 +1,20 @@
 import { NgModule }                     from '@angular/core';
 import { Routes, RouterModule }         from '@angular/router';
 
+import { MainLayoutComponent }          from '../shared/layouts/main-layout.component';
+
 import { ArticleListComponent }         from './articles/article-list.compoment';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'articles', pathMatch: 'full' },
+    {
+        path: '', component: MainLayoutComponent,
+        children: [
+            { path: '', redirectTo: 'articles', pathMatch: 'full' },
 
-    // Article
-    { path: 'articles',        component: ArticleListComponent }
+            // Article
+            { path: 'articles',        component: ArticleListComponent }
+        ]
+    }
 ];
 
 @NgModule({
