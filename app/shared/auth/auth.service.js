@@ -9,19 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var LoginComponent = (function () {
-    function LoginComponent() {
+var Observable_1 = require('rxjs/Observable');
+var AuthService = (function () {
+    function AuthService() {
+        this.isLoggedIn = false;
     }
-    LoginComponent.prototype.ngOnInit = function () { };
-    LoginComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'pulsar-login',
-            templateUrl: 'login.component.html'
-        }), 
+    AuthService.prototype.login = function () {
+        var _this = this;
+        return Observable_1.Observable.of(true).delay(1000).do(function (val) { return _this.isLoggedIn = true; });
+    };
+    AuthService.prototype.logout = function () {
+        this.isLoggedIn = false;
+    };
+    AuthService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], LoginComponent);
-    return LoginComponent;
+    ], AuthService);
+    return AuthService;
 }());
-exports.LoginComponent = LoginComponent;
-//# sourceMappingURL=login.component.js.map
+exports.AuthService = AuthService;
+//# sourceMappingURL=auth.service.js.map

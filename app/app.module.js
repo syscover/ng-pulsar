@@ -15,6 +15,9 @@ var app_component_1 = require('./app.component');
 var core_module_1 = require('./core/core.module');
 var app_routing_module_1 = require('./app-routing.module');
 var translator_service_1 = require('./shared/translator/translator.service');
+var auth_guard_service_1 = require('./shared/auth/auth-guard.service');
+var auth_service_1 = require('./shared/auth/auth.service');
+var login_component_1 = require('./login.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,10 +31,13 @@ var AppModule = (function () {
                 http_1.JsonpModule
             ],
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                login_component_1.LoginComponent
             ],
             providers: [
-                translator_service_1.TranslatorService
+                translator_service_1.TranslatorService,
+                auth_guard_service_1.AuthGuard,
+                auth_service_1.AuthService
             ],
             bootstrap: [
                 app_component_1.AppComponent

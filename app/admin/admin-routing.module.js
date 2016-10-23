@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var main_layout_component_1 = require('../shared/layouts/main-layout.component');
-var login_component_1 = require("./login/login.component");
+var auth_guard_service_1 = require('../shared/auth/auth-guard.service');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var lang_list_compoment_1 = require('./langs/lang-list.compoment');
 var lang_detail_component_1 = require('./langs/lang-detail.component');
@@ -19,12 +19,10 @@ var action_list_compoment_1 = require('./actions/action-list.compoment');
 var action_detail_component_1 = require('./actions/action-detail.component');
 var routes = [
     // Login
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    {
-        path: 'login', component: login_component_1.LoginComponent
-    },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     {
         path: '', component: main_layout_component_1.MainLayoutComponent,
+        canActivate: [auth_guard_service_1.AuthGuard],
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             // Dashboard

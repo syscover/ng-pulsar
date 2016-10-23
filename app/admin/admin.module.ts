@@ -4,7 +4,6 @@ import { SharedModule }                 from '../shared/shared.module';
 
 import { AdminRoutingModule }           from './admin-routing.module';
 
-import { LoginComponent }               from './login/login.component';
 import { DashboardComponent }           from './dashboard/dashboard.component';
 import { LangListComponent }            from './langs/lang-list.compoment';
 import { LangDetailComponent }          from './langs/lang-detail.component';
@@ -19,8 +18,6 @@ import { ActionService }                from './actions/action.service';
         AdminRoutingModule
     ],
     declarations: [
-        LoginComponent,
-
         DashboardComponent,
 
         LangListComponent,

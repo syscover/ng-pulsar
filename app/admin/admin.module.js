@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var shared_module_1 = require('../shared/shared.module');
 var admin_routing_module_1 = require('./admin-routing.module');
-var login_component_1 = require('./login/login.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var lang_list_compoment_1 = require('./langs/lang-list.compoment');
 var lang_detail_component_1 = require('./langs/lang-detail.component');
@@ -28,7 +27,6 @@ var AdminModule = (function () {
                 admin_routing_module_1.AdminRoutingModule
             ],
             declarations: [
-                login_component_1.LoginComponent,
                 dashboard_component_1.DashboardComponent,
                 lang_list_compoment_1.LangListComponent,
                 lang_detail_component_1.LangDetailComponent,

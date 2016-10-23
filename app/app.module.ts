@@ -7,6 +7,10 @@ import { CoreModule }               from './core/core.module';
 import { AppRoutingModule }         from './app-routing.module';
 
 import { TranslatorService }        from './shared/translator/translator.service';
+import { AuthGuard }                from './shared/auth/auth-guard.service';
+import { AuthService }              from './shared/auth/auth.service';
+
+import { LoginComponent }           from './login.component';
 
 @NgModule({
     imports: [
@@ -18,10 +22,13 @@ import { TranslatorService }        from './shared/translator/translator.service
         JsonpModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent
     ],
     providers: [
-        TranslatorService
+        TranslatorService,
+        AuthGuard,
+        AuthService
     ],
     bootstrap: [
         AppComponent

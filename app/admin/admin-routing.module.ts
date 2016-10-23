@@ -2,8 +2,8 @@ import { NgModule }                     from '@angular/core';
 import { Routes, RouterModule }         from '@angular/router';
 
 import { MainLayoutComponent }          from '../shared/layouts/main-layout.component';
+import { AuthGuard }                    from '../shared/auth/auth-guard.service';
 
-import { LoginComponent }               from "./login/login.component";
 import { DashboardComponent }           from './dashboard/dashboard.component';
 import { LangListComponent }            from './langs/lang-list.compoment';
 import { LangDetailComponent }          from './langs/lang-detail.component';
@@ -14,13 +14,10 @@ import { ActionDetailComponent }        from './actions/action-detail.component'
 const routes: Routes = [
 
     // Login
-    { path: '', redirectTo: 'login', pathMatch: 'full' }, // with route /admin redirect to login
-    {
-        path: 'login',        component: LoginComponent
-    },
-
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     {
         path: '', component: MainLayoutComponent,
+        canActivate: [AuthGuard],
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
 
