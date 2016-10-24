@@ -28,6 +28,8 @@
             '@angular/material': 'npm:@angular/material/material.umd.js',
 
             '@vaadin/angular2-polymer': 'npm:@vaadin/angular2-polymer',
+            'ng2-cookies/ng2-cookies': 'npm:ng2-cookies',
+            'crypto-js': 'npm:crypto-js',
 
             // other libraries
             'rxjs':                       'npm:rxjs'
@@ -46,6 +48,14 @@
                 defaultExtension: 'js'
             },
             '@vaadin/angular2-polymer': {
+                main: './index.js',
+                defaultExtension: 'js'
+            },
+            'ng2-cookies/ng2-cookies': {
+                main: './index.js',
+                defaultExtension: 'js'
+            },
+            'crypto-js': {
                 main: './index.js',
                 defaultExtension: 'js'
             }
