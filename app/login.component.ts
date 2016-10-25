@@ -4,6 +4,7 @@ import { Router }               from '@angular/router';
 import { TranslatorService }    from './shared/translator/translator.service';
 
 import { AuthService }          from './shared/auth/auth.service';
+import { SessionService }       from './shared/session/session.service';
 
 import config                   = require('./shared/app-globals');
 
@@ -22,7 +23,11 @@ export class LoginComponent implements OnInit
         private router: Router
     ) { }
 
-    ngOnInit() { }
+    ngOnInit()
+    {
+        if(SessionService.get('auth') === true)
+            this.router.navigate([config.appUrlPrefix + '/admin']);
+    }
 
     login()
     {
@@ -32,7 +37,7 @@ export class LoginComponent implements OnInit
 
             this.setMessage();
 
-            if (this.authService.isLoggedIn)
+            if (this.authService.check())
             {
                 // Get the redirect URL from our auth service
                 // If no redirect has been set, use the default
@@ -46,6 +51,6 @@ export class LoginComponent implements OnInit
 
     setMessage()
     {
-        this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+        this.message = 'Logged ' + (this.authService.check() ? 'in' : 'out');
     }
 }

@@ -9,27 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ng2_cookies_1 = require('ng2-cookies/ng2-cookies');
 var Observable_1 = require('rxjs/Observable');
-var CryptoJS = require("crypto-js");
+var session_service_1 = require('../session/session.service');
 var AuthService = (function () {
     function AuthService() {
-        this.isLoggedIn = false;
     }
     AuthService.prototype.login = function () {
-        var _this = this;
-        var text = CryptoJS.AES.encrypt(JSON.stringify({ auth: true }), '33527667Sb');
-        console.log(text.toString());
-        ng2_cookies_1.Cookie.set('pulsar_session', text.toString());
-        var variable = ng2_cookies_1.Cookie.get('pulsar_session');
-        // Decrypt
-        var bytes = CryptoJS.AES.decrypt(variable, '33527667Sb');
-        var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        console.log(decryptedData);
-        return Observable_1.Observable.of(true).delay(1000).do(function (val) { return _this.isLoggedIn = true; });
+        return Observable_1.Observable.of(true)
+            .delay(1000)
+            .do(function (val) { return session_service_1.SessionService.set('auth', true); });
     };
     AuthService.prototype.logout = function () {
-        this.isLoggedIn = false;
+        session_service_1.SessionService.delete('auth');
+    };
+    AuthService.prototype.check = function () {
+        return session_service_1.SessionService.get('auth');
     };
     AuthService = __decorate([
         core_1.Injectable(), 

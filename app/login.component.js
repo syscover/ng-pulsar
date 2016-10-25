@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var translator_service_1 = require('./shared/translator/translator.service');
 var auth_service_1 = require('./shared/auth/auth.service');
+var session_service_1 = require('./shared/session/session.service');
 var config = require('./shared/app-globals');
 var LoginComponent = (function () {
     function LoginComponent(trans, authService, router) {
@@ -19,13 +20,16 @@ var LoginComponent = (function () {
         this.authService = authService;
         this.router = router;
     }
-    LoginComponent.prototype.ngOnInit = function () { };
+    LoginComponent.prototype.ngOnInit = function () {
+        if (session_service_1.SessionService.get('auth') === true)
+            this.router.navigate([config.appUrlPrefix + '/admin']);
+    };
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.message = 'Trying to log in ...';
         this.authService.login().subscribe(function () {
             _this.setMessage();
-            if (_this.authService.isLoggedIn) {
+            if (_this.authService.check()) {
                 // Get the redirect URL from our auth service
                 // If no redirect has been set, use the default
                 var redirect = _this.authService.redirectUrl ? _this.authService.redirectUrl : config.appUrlPrefix + '/admin';
@@ -35,7 +39,7 @@ var LoginComponent = (function () {
         });
     };
     LoginComponent.prototype.setMessage = function () {
-        this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+        this.message = 'Logged ' + (this.authService.check() ? 'in' : 'out');
     };
     LoginComponent = __decorate([
         core_1.Component({

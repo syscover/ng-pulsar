@@ -1,13 +1,9 @@
 
 <h2>Login</h2>
 <p>{{ message }}</p>
-<p>
-    <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-</p>
-
 
 <form routerLink="/pulsar/admin/dashboard">
     <input type="text" name="user" placeholder="{{ trans.getChoice('user', 1) }}">
     <input type="password" name="password" placeholder="{{ trans.getChoice('password', 1) }}">
-    <button type="submit">Login</button>
+    <button (click)="login()"  *ngIf="!authService.check()">Login</button>
 </form>

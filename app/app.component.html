@@ -5,5 +5,7 @@
             <li><a (click)="trans.change('en')">EN</a></li>
         </ul>
     </nav>
+    <button (click)="logout()" *ngIf="authService.check()">Logout</button>
+
     <!-- main routes outlet -->
     <router-outlet></router-outlet>

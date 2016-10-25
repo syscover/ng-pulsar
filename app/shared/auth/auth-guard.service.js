@@ -22,7 +22,7 @@ var AuthGuard = (function () {
         return this.checkLogin(url);
     };
     AuthGuard.prototype.checkLogin = function (url) {
-        if (this.authService.isLoggedIn) {
+        if (this.authService.check()) {
             return true;
         }
         // Store the attempted URL for redirecting

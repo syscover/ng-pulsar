@@ -9,18 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var translator_service_1 = require('./shared/translator/translator.service');
+var auth_service_1 = require('./shared/auth/auth.service');
+var config = require('./shared/app-globals');
 var AppComponent = (function () {
-    function AppComponent(trans) {
+    function AppComponent(trans, authService, router) {
         this.trans = trans;
+        this.authService = authService;
+        this.router = router;
         this.title = 'NG PULSAR';
     }
+    AppComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.router.navigate([config.appUrlPrefix]);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'pulsar-app',
             templateUrl: 'ng-pulsar/app/app.component.html'
         }), 
-        __metadata('design:paramtypes', [translator_service_1.TranslatorService])
+        __metadata('design:paramtypes', [translator_service_1.TranslatorService, auth_service_1.AuthService, router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());
