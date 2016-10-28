@@ -26,13 +26,13 @@ var routes = [
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             // Dashboard
-            { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
+            { path: 'dashboard', component: dashboard_component_1.DashboardComponent, data: { resource: 'hola-mundo' } },
             // Langs
             { path: 'langs', component: lang_list_compoment_1.LangListComponent },
             { path: 'langs/:id', component: lang_detail_component_1.LangDetailComponent },
             // Actions
-            { path: 'actions', component: action_list_compoment_1.ActionListComponent },
-            { path: 'actions/:id', component: action_detail_component_1.ActionDetailComponent }
+            { path: 'actions', component: action_list_compoment_1.ActionListComponent, data: { resource: 'actions-resource' } },
+            { path: 'actions/:id', component: action_detail_component_1.ActionDetailComponent, data: { resource: 'actions-resource2' } }
         ]
     }
 ];
