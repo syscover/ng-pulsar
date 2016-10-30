@@ -24,6 +24,8 @@ export class TranslatorService
      */
     private load(module: string, checkOverload: boolean): boolean
     {
+
+        console.log('llamada');
         if(this.isLoading && checkOverload)
             return null;
 
@@ -35,7 +37,7 @@ export class TranslatorService
             this.isLoading = true;
 
         System.import(System.baseURL + 'app/' + urlModule + 'translations/' + this.locale).then((response) => {
-
+            console.log('carga');
             // Search translationCollection in collections array
             var isFound = false;
             this.collections.find((translationCollection: TranslationCollection, index) => {

@@ -26,6 +26,7 @@ var TranslatorService = (function () {
      */
     TranslatorService.prototype.load = function (module, checkOverload) {
         var _this = this;
+        console.log('llamada');
         if (this.isLoading && checkOverload)
             return null;
         var urlModule = '';
@@ -34,6 +35,7 @@ var TranslatorService = (function () {
         if (checkOverload)
             this.isLoading = true;
         System.import(System.baseURL + 'app/' + urlModule + 'translations/' + this.locale).then(function (response) {
+            console.log('carga');
             // Search translationCollection in collections array
             var isFound = false;
             _this.collections.find(function (translationCollection, index) {

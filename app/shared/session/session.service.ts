@@ -25,6 +25,7 @@ export class SessionService
         encryptValue = CryptoJS.AES.encrypt(JSON.stringify(pulsarSession), config.key);
 
         Cookie.set(SessionService.cookieName, encryptValue, 1, '/');
+        sessionStorage.setItem(SessionService.cookieName, encryptValue);
     }
 
     public static get(name: string): any

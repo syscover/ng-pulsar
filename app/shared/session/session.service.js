@@ -24,6 +24,7 @@ var SessionService = (function () {
         pulsarSession[name] = value;
         encryptValue = CryptoJS.AES.encrypt(JSON.stringify(pulsarSession), config.key);
         ng2_cookies_1.Cookie.set(SessionService.cookieName, encryptValue, 1, '/');
+        sessionStorage.setItem(SessionService.cookieName, encryptValue);
     };
     SessionService.get = function (name) {
         var encryptValue = ng2_cookies_1.Cookie.get(SessionService.cookieName);
